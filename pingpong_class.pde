@@ -1,8 +1,12 @@
 Ball ball;
+BallBat batleft;
+BallBat batright;
 void setup()
 {
 size(800,600);
 ball=new Ball(width/2,height/2,50);
+batleft=new BallBat(20,height/2,40,200);
+batright=new BallBat(width-20,height/2,40,200);
 ball.ballspeedx=1;
 ball.ballspeedy=1;
 }
@@ -12,6 +16,8 @@ background(0);
 ball.move_ball();
 ball.draw();
 ball.bouce_ball();
+batleft.draw();
+batright.draw();
 }
 class Ball
 {
@@ -78,19 +84,28 @@ float ball_bottom()
   return this.bally+this.ballsize/2;
 }  
 }
+
 class BallBat
 {
 float batx;
 float baty;
 float bat_width;
 float bat_height;
+  BallBat(float tempX,float tempY,float tempWidth,float tempHeight)
+   {
+   this.batx=tempX;
+   this.baty=tempY;
+   this.bat_width=tempWidth;
+   this.bat_height=tempHeight;
 
+   }
 void move_BallBat()
 {
 }
 
 void draw()
 {
+rect(batx-bat_width/2,baty-bat_height/2,bat_width,bat_height);
 }
 
 void hit_Ball()
