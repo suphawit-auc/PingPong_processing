@@ -18,6 +18,22 @@ void bouce_ball()
 {
 }
 
+float ball_left()
+{
+  return ballx-ballsize/2;
+}  
+float ball_right()
+{
+  return ballx+ballsize/2;
+}  
+float ball_top()
+{
+  return bally-ballsize/2;
+}  
+float ball_bottom()
+{
+  return bally+ballsize/2;
+}  
 }
 class BallBat
 {
@@ -36,6 +52,26 @@ void draw()
 
 void hit_Ball()
 {
+}
+
+float bat_left()
+{
+return batx-bat_width/2;
+}
+
+float bat_right()
+{
+return batx+bat_width/2;
+}
+
+float bat_top()
+{
+return baty-bat_height/2;
+}
+
+float bat_bottom()
+{
+return baty+bat_height/2;
 }
 
 }
