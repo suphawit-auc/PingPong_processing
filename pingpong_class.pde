@@ -1,17 +1,29 @@
 class Ball
 {
-int ballx;
-int bally;
-int ballspeedx;
-int ballspeedy;
-int ballsize;
+  float ballx;
+  float bally;
+  float ballspeedx;
+  float ballspeedy;
+  float ballsize;
+
+  Ball(float tempX,float tempY,float tempSize)
+  {
+   this.ballx=tempX;
+   this.bally=tempY;
+   this.ballsize=tempSize;
+   this.ballspeedx=0;
+   this.ballspeedy=0;
+  }
 
 void move_ball()
 {
+  this.ballx=this.ballx+this.ballspeedx;
+  this.bally=this.bally+this.ballspeedy;
 }
 
 void draw()
 {
+  ellipse(this.ballx,this.bally,this.ballsize,this.ballsize);
 }
 
 void bouce_ball()
@@ -20,27 +32,27 @@ void bouce_ball()
 
 float ball_left()
 {
-  return ballx-ballsize/2;
+  return this.ballx-this.ballsize/2;
 }  
 float ball_right()
 {
-  return ballx+ballsize/2;
+  return this.ballx+this.ballsize/2;
 }  
 float ball_top()
 {
-  return bally-ballsize/2;
+  return this.bally-this.ballsize/2;
 }  
 float ball_bottom()
 {
-  return bally+ballsize/2;
+  return this.bally+this.ballsize/2;
 }  
 }
 class BallBat
 {
-int batx;
-int baty;
-int bat_width;
-int bat_height;
+float batx;
+float baty;
+float bat_width;
+float bat_height;
 
 void move_BallBat()
 {
@@ -56,22 +68,22 @@ void hit_Ball()
 
 float bat_left()
 {
-return batx-bat_width/2;
+return this.batx-this.bat_width/2;
 }
 
 float bat_right()
 {
-return batx+bat_width/2;
+return this.batx+this.bat_width/2;
 }
 
 float bat_top()
 {
-return baty-bat_height/2;
+return this.baty-this.bat_height/2;
 }
 
 float bat_bottom()
 {
-return baty+bat_height/2;
+return this.baty+this.bat_height/2;
 }
 
 }
