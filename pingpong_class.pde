@@ -1,3 +1,17 @@
+Ball ball;
+void setup()
+{
+size(800,600);
+ball=new Ball(width/2,height/2,50);
+ball.ballspeedx=1;
+ball.ballspeedy=1;
+}
+void draw()
+{
+background(0);
+ball.move_ball();
+ball.draw();
+}
 class Ball
 {
   float ballx;
