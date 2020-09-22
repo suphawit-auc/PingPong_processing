@@ -3,7 +3,7 @@ class Ball
 void move_ball()
 {
 }
-void draw_ball()
+void draw()
 {
 }
 void bouce_ball()
@@ -15,7 +15,7 @@ class BallBat
 void move_BallBat()
 {
 }
-void draw_BallBat()
+void draw()
 {
 }
 void hit_Ball()
