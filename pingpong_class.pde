@@ -6,7 +6,7 @@ void move_ball()
 void draw_ball()
 {
 }
-void count_score()
+void bouce_ball()
 {
 }
 }
@@ -18,7 +18,19 @@ void move_BallBat()
 void draw_BallBat()
 {
 }
-void bouce_Ball()
+void hit_Ball()
+{
+}
+}
+class PongGame
+{
+void start_game()
+{
+}
+void count_score()
+{
+} 
+void reset_game()
 {
 }
 }
