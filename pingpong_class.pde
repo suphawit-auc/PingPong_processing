@@ -11,6 +11,7 @@ void draw()
 background(0);
 ball.move_ball();
 ball.draw();
+ball.bouce_ball();
 }
 class Ball
 {
@@ -42,6 +43,22 @@ void draw()
 
 void bouce_ball()
 {
+if(this.ball_right()>width)
+{
+this.ballspeedx=-this.ballspeedx;
+}
+if(this.ball_left()<0)
+{
+this.ballspeedx=-this.ballspeedx;
+}
+if(this.ball_bottom()>height)
+{
+this.ballspeedy=-this.ballspeedy;
+}
+if(this.ball_top()<0)
+{
+this.ballspeedy=-this.ballspeedy;
+}
 }
 
 float ball_left()
