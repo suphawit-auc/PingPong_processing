@@ -7,8 +7,8 @@ size(800,600);
 ball=new Ball(width/2,height/2,50);
 batleft=new BallBat(20,height/2,40,200);
 batright=new BallBat(width-20,height/2,40,200);
-ball.ballspeedx=1;
-ball.ballspeedy=1;
+ball.ballspeedx=3;
+ball.ballspeedy=random(-2,2);
 }
 void draw()
 {
@@ -18,9 +18,10 @@ ball.draw();
 ball.bouce_ball();
 batleft.move_BallBat();
 batleft.draw();
-
+batright.move_BallBat();
 batright.draw();
-
+batright.draw();
+hit_ball();
 }
 class Ball
 {
@@ -153,6 +154,7 @@ void mouseReleased() {
 }
 void hit_Ball()
 {
+
 }
 
 float bat_left()
@@ -192,4 +194,34 @@ void count_score()
 void reset_game()
 {
 }
+}
+void hit_ball()
+{
+  if(ball.ball_left()<batleft.bat_right()&&ball.bally>batleft.bat_top()&&ball.bally<batleft.bat_bottom())
+  {
+  ball.ballspeedx = -ball.ballspeedx;
+  if(ball.ballspeedx>0)
+    {
+      ball.ballspeedx+=1;
+    }
+  if(ball.ballspeedx<0)
+    {
+      ball.ballspeedx-=1;
+    }
+  ball.ballspeedy=map(ball.bally-batleft.baty,-batleft.bat_height/2,batleft.bat_height/2,-10,10);
+  }
+
+  if( ball.ball_right() > batright.bat_left() && ball.bally > batright.bat_top() && ball.bally < batright.bat_bottom())
+    {
+    ball.ballspeedx = -ball.ballspeedx;
+    if(ball.ballspeedx>0)
+    {
+      ball.ballspeedx+=1;
+    }
+    if(ball.ballspeedx<0)
+    {
+      ball.ballspeedx-=1;
+    }
+  ball.ballspeedy = map(ball.bally -batright.baty, -batright.bat_height/2, batright.bat_height/2, -10, 10);
+  }
 }
