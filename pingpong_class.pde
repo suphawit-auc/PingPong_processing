@@ -16,8 +16,11 @@ background(0);
 ball.move_ball();
 ball.draw();
 ball.bouce_ball();
+batleft.move_BallBat();
 batleft.draw();
+
 batright.draw();
+
 }
 class Ball
 {
@@ -85,13 +88,16 @@ float ball_bottom()
 }  
 }
 
-class BallBat
+public class BallBat
 {
 float batx;
 float baty;
 float bat_width;
 float bat_height;
-  BallBat(float tempX,float tempY,float tempWidth,float tempHeight)
+float offset=0.0;
+boolean overbat=false;
+boolean locked=false;
+  public BallBat(float tempX,float tempY,float tempWidth,float tempHeight)
    {
    this.batx=tempX;
    this.baty=tempY;
@@ -101,13 +107,50 @@ float bat_height;
    }
 void move_BallBat()
 {
+this.check();
+this.mouseDragged();
+this.mouseReleased();
 }
-
 void draw()
 {
-rect(batx-bat_width/2,baty-bat_height/2,bat_width,bat_height);
+  if(mouseX>bat_left() && mouseX<bat_right()&&  mouseY >bat_top()&& mouseY<bat_bottom())
+{
+this.overbat=true;
+}
+else
+{
+this.overbat=false;
+}
+  rect(batx-bat_width/2,baty-bat_height/2,bat_width,bat_height);
+}
+void check() {
+  if(mousePressed==true)
+  {
+  if(this.overbat) { 
+   this.locked = true; 
+  
+}
+  
+  else {
+    this.locked = false;
+  }
+  
+  }
 }
 
+void mouseDragged()
+  {
+  if(this.locked) {
+
+  baty=baty+mouseY-pmouseY; 
+  
+  
+}
+
+}
+void mouseReleased() {
+  this.locked = false;
+}
 void hit_Ball()
 {
 }
@@ -131,6 +174,7 @@ float bat_bottom()
 {
 return this.baty+this.bat_height/2;
 }
+
 
 }
 class PongGame
