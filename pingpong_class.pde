@@ -30,7 +30,8 @@ class Ball
   float ballspeedx;
   float ballspeedy;
   float ballsize;
-
+  float scoreleft;
+  float scoreright;
   Ball(float tempX,float tempY,float tempSize)
   {
    this.ballx=tempX;
@@ -38,6 +39,8 @@ class Ball
    this.ballsize=tempSize;
    this.ballspeedx=0;
    this.ballspeedy=0;
+   this.scoreleft=0;
+   this.scoreright=0;
   }
 
 void move_ball()
@@ -55,11 +58,19 @@ void bouce_ball()
 {
 if(this.ball_right()>width)
 {
-this.ballspeedx=-this.ballspeedx;
+this.scoreleft=this.scoreleft+1;
+this.ballx=width/2;
+this.bally=height/2;
+ball.ballspeedx=3;
+ball.ballspeedy=random(-2,2);
 }
 if(this.ball_left()<0)
 {
-this.ballspeedx=-this.ballspeedx;
+this.scoreright=this.scoreright+1;
+this.ballx=width/2;
+this.bally=height/2;
+ball.ballspeedx=3;
+ball.ballspeedy=random(-2,2);
 }
 if(this.ball_bottom()>height)
 {
@@ -181,8 +192,8 @@ return this.baty+this.bat_height/2;
 }
 class PongGame
 {
-int score_player1;
-int score_player2;
+int score_player1=0;
+int score_player2=0;
 void start_game()
 {
 }
