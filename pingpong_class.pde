@@ -22,6 +22,10 @@ batright.move_BallBat();
 batright.draw();
 batright.draw();
 hit_ball();
+textSize(40);
+textAlign(CENTER);
+text(ball.scoreright, width/2+200, 30);
+text(ball.scoreleft, width/2-200, 30);
 }
 class Ball
 {
@@ -30,8 +34,8 @@ class Ball
   float ballspeedx;
   float ballspeedy;
   float ballsize;
-  float scoreleft;
-  float scoreright;
+  int scoreleft;
+  int scoreright;
   Ball(float tempX,float tempY,float tempSize)
   {
    this.ballx=tempX;
